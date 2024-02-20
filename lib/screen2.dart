@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'home2.dart';
 
 class Screen2 extends StatefulWidget {
   const Screen2({Key? key}) : super(key: key);
@@ -11,22 +11,25 @@ class Screen2 extends StatefulWidget {
 
 class _Screen2State extends State<Screen2> {
   @override
-  double opacity = 0;
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Stack(
-          children: [AnimatedPositioned(
-            duration: const Duration(seconds: 3),
-            onEnd:(){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Home()));
-            } ,
-            child: const FlutterLogo(size: 100),
-          ),
-
-          ]
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Hero(tag: "icon", child: FlutterLogo(size: 300)),
+            const SizedBox(
+              height: 100,
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Home2()));
+                },
+                child: const Text("To Next Page"))
+          ],
         ),
       ),
     );
